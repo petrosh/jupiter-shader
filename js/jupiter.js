@@ -27,7 +27,7 @@
         //scene.add(new THREE.AmbientLight(0x333333));
 
         var light = new THREE.DirectionalLight(0xffffff, .5);
-        light.position.set( -1, 0, 1 ).normalize();
+        light.position.set( 1, 0, 1 ).normalize();
         scene.add(light);
 
     var sphere = createSphere(radius, segments);
@@ -38,7 +38,7 @@
         clouds.rotation.y = rotation;
         scene.add(clouds)
 
-        var stars = createStars(6371, 64);
+        var stars = createStars(90, 64);
         scene.add(stars);
 
         var controls = new THREE.TrackballControls(camera);
@@ -46,6 +46,7 @@
         webglEl.appendChild(renderer.domElement);
 
         render();
+        postprocess();
 
         function render() {
                 controls.update();
@@ -53,6 +54,15 @@
                 clouds.rotation.y += 0.0005;
                 requestAnimationFrame(render);
                 renderer.render(scene, camera);
+        }
+
+        function postprocess(){
+          var renderModel = new THREE.RenderPass( scene, camera );
+          var effectFilm = new THREE.FilmPass( 0.35, 0.75, 2048, false );
+          effectFilm.renderToScreen = true;
+          composer = new THREE.EffectComposer( renderer );
+          composer.addPass( renderModel );
+          composer.addPass( effectFilm );
         }
 
         function createSphere(radius, segments) {
@@ -77,7 +87,7 @@
                 );
         }
 
-        function createStars1(radius, segments) {
+        function createStars(radius, segments) {
                 return new THREE.Mesh(
                         new THREE.SphereGeometry(radius, segments, segments),
                         new THREE.MeshBasicMaterial({
@@ -86,61 +96,5 @@
                         })
                 );
         }
-        function createStars(radius, segments) {
-          // stars
 
-				var i, r = radius, starsGeometry = [ new THREE.Geometry(), new THREE.Geometry() ];
-
-				for ( i = 0; i < 250; i ++ ) {
-
-					var vertex = new THREE.Vector3();
-					vertex.x = Math.random() * 2 - 1;
-					vertex.y = Math.random() * 2 - 1;
-					vertex.z = Math.random() * 2 - 1;
-					vertex.multiplyScalar( r );
-
-					starsGeometry[ 0 ].vertices.push( vertex );
-
-				}
-
-				for ( i = 0; i < 1500; i ++ ) {
-
-					var vertex = new THREE.Vector3();
-					vertex.x = Math.random() * 2 - 1;
-					vertex.y = Math.random() * 2 - 1;
-					vertex.z = Math.random() * 2 - 1;
-					vertex.multiplyScalar( r );
-
-					starsGeometry[ 1 ].vertices.push( vertex );
-
-				}
-
-				var stars;
-				var starsMaterials = [
-					new THREE.PointCloudMaterial( { color: 0x555555, size: 2, sizeAttenuation: false } ),
-					new THREE.PointCloudMaterial( { color: 0x555555, size: 1, sizeAttenuation: false } ),
-					new THREE.PointCloudMaterial( { color: 0x333333, size: 2, sizeAttenuation: false } ),
-					new THREE.PointCloudMaterial( { color: 0x3a3a3a, size: 1, sizeAttenuation: false } ),
-					new THREE.PointCloudMaterial( { color: 0x1a1a1a, size: 2, sizeAttenuation: false } ),
-					new THREE.PointCloudMaterial( { color: 0x1a1a1a, size: 1, sizeAttenuation: false } )
-				];
-
-				for ( i = 10; i < 30; i ++ ) {
-
-					stars = new THREE.PointCloud( starsGeometry[ i % 2 ], starsMaterials[ i % 6 ] );
-
-					stars.rotation.x = Math.random() * 6;
-					stars.rotation.y = Math.random() * 6;
-					stars.rotation.z = Math.random() * 6;
-
-					s = i * 10;
-					stars.scale.set( s, s, s );
-
-					stars.matrixAutoUpdate = false;
-					stars.updateMatrix();
-
-					scene.add( stars );
-
-				}
-      }
 }());
