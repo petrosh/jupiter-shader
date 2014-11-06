@@ -61,7 +61,8 @@
                         new THREE.MeshPhongMaterial({
                                 map:         THREE.ImageUtils.loadTexture('images/jupitermap.jpg'),
                                 specular:    new THREE.Color('grey'),
-                                reflectivity: 0
+                                reflectivity: 0,
+                                shininess: 0
                         })
                 );
         }
