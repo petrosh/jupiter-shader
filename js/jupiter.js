@@ -81,7 +81,7 @@
                         new THREE.MeshBasicMaterial({
                                 map:  THREE.ImageUtils.loadTexture('images/galaxy_starfield.png'),
                                 side: THREE.BackSide,
-                                reflectivity: 1
+                                reflectivity: 0
                         })
                 );
         }
