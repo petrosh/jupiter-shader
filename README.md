@@ -1,4 +1,3 @@
-jupiter-shader
-==============
-
-Shader on Jupiter three.js
+- fly control http://threejs.org/examples/#misc_controls_fly
+- jupiter http://www.cosmiqcloud.com/design/earth/jupiter.html
+- shader http://www.airtightinteractive.com/demos/js/shaders/preview/
