@@ -27,7 +27,7 @@
         //scene.add(new THREE.AmbientLight(0x333333));
 
         var light = new THREE.DirectionalLight(0xffffff, .5);
-        light.position.set(15,0,15);
+        light.position.set( -1, 0, 1 ).normalize();
         scene.add(light);
 
     var sphere = createSphere(radius, segments);
@@ -38,7 +38,7 @@
         clouds.rotation.y = rotation;
         scene.add(clouds)
 
-        var stars = createStars(90, 64);
+        var stars = createStars(6371, 64);
         scene.add(stars);
 
         var controls = new THREE.TrackballControls(camera);
