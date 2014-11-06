@@ -24,6 +24,7 @@
         var renderer = new THREE.WebGLRenderer();
         renderer.setSize(width, height);
 
+        renderer.autoClear = false; // ADDED
         //scene.add(new THREE.AmbientLight(0x333333));
 
         var light = new THREE.DirectionalLight(0xffffff, .5);
