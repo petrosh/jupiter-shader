@@ -80,7 +80,8 @@
                         new THREE.SphereGeometry(radius, segments, segments),
                         new THREE.MeshBasicMaterial({
                                 map:  THREE.ImageUtils.loadTexture('images/galaxy_starfield.png'),
-                                side: THREE.BackSide
+                                side: THREE.BackSide,
+                                reflectivity: 1
                         })
                 );
         }
