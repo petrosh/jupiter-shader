@@ -26,8 +26,8 @@
 
         //scene.add(new THREE.AmbientLight(0x333333));
 
-        var light = new THREE.DirectionalLight(0xffffff, 1);
-        light.position.set(5,3,5);
+        var light = new THREE.DirectionalLight(0xffffff, .5);
+        light.position.set(15,0,15);
         scene.add(light);
 
     var sphere = createSphere(radius, segments);
