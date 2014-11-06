@@ -60,7 +60,8 @@
                         new THREE.SphereGeometry(radius, segments, segments),
                         new THREE.MeshPhongMaterial({
                                 map:         THREE.ImageUtils.loadTexture('images/jupitermap.jpg'),
-                                specular:    new THREE.Color('grey')
+                                specular:    new THREE.Color('grey'),
+                                reflectivity: 0
                         })
                 );
         }
@@ -80,8 +81,7 @@
                         new THREE.SphereGeometry(radius, segments, segments),
                         new THREE.MeshBasicMaterial({
                                 map:  THREE.ImageUtils.loadTexture('images/galaxy_starfield.png'),
-                                side: THREE.BackSide,
-                                reflectivity: 0
+                                side: THREE.BackSide
                         })
                 );
         }
