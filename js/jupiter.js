@@ -49,7 +49,7 @@
 
         function render() {
                 controls.update();
-                sphere.rotation.y += 0.0005;
+                sphere.rotation.y += 0.00005;
                 clouds.rotation.y += 0.0005;
                 requestAnimationFrame(render);
                 renderer.render(scene, camera);
