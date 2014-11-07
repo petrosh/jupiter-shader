@@ -31,6 +31,39 @@
         light.position.set( 1, 0, 1 ).normalize();
         scene.add(light);
 
+        // UNIFORMS
+        var shader = THREE.ShaderLib[ "normalmap" ];
+				var uniforms = THREE.UniformsUtils.clone( shader.uniforms );
+
+				//uniforms[ "tNormal" ].value = normalTexture;
+				uniforms[ "uNormalScale" ].value.set( 0.85, 0.85 );
+
+				//uniforms[ "tDiffuse" ].value = planetTexture;
+				//uniforms[ "tSpecular" ].value = specularTexture;
+
+				uniforms[ "enableAO" ].value = false;
+				uniforms[ "enableDiffuse" ].value = true;
+				uniforms[ "enableSpecular" ].value = true;
+
+				uniforms[ "diffuse" ].value.setHex( 0xffffff );
+				uniforms[ "specular" ].value.setHex( 0x333333 );
+				uniforms[ "ambient" ].value.setHex( 0x000000 );
+
+				uniforms[ "shininess" ].value = 15;
+
+				var parameters = {
+
+					fragmentShader: shader.fragmentShader,
+					vertexShader: shader.vertexShader,
+					uniforms: uniforms,
+					lights: true,
+					fog: true
+
+				};
+
+				var materialNormalMap = new THREE.ShaderMaterial( parameters );
+      // GO CREATE
+
     var sphere = createSphere(radius, segments);
         sphere.rotation.y = rotation;
         scene.add(sphere)
