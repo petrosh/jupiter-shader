@@ -57,7 +57,7 @@
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
 			var radius = 6371;
-			var tilt = 0.2; // was 0.41
+			var tilt = 0; // was 0.41
 			var rotationSpeed = 0.01; // was 0.02
 
 			var cloudsScale = 1.005;
@@ -83,9 +83,9 @@
 
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
-
-				camera = new THREE.PerspectiveCamera( 25, SCREEN_WIDTH / SCREEN_HEIGHT, 50, 1e7 );
-				camera.position.z = radius * 5;
+        var fov = 35; // was 25
+				camera = new THREE.PerspectiveCamera( fov, SCREEN_WIDTH / SCREEN_HEIGHT, 50, 1e7 );
+				camera.position.z = 0; // was radius * 5
 
 				scene = new THREE.Scene();
 				scene.fog = new THREE.FogExp2( 0x000000, 0.00000025 );
@@ -105,7 +105,7 @@
 				ambientLight = new THREE.AmbientLight( 0x000000, 0.2 );
 				scene.add( ambientLight );
 
-				var planetTexture   = THREE.ImageUtils.loadTexture( "textures/jupitermap_2048.jpg" );
+				var planetTexture   = THREE.ImageUtils.loadTexture( "textures/jupitermap.jpg" );
 				var cloudsTexture   = THREE.ImageUtils.loadTexture( "textures/earth_clouds_1024.png" );
 				var normalTexture   = THREE.ImageUtils.loadTexture( "textures/earth_normal_2048.jpg" );
 				var specularTexture = THREE.ImageUtils.loadTexture( "textures/earth_specular_2048.jpg" );
