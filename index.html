@@ -90,9 +90,9 @@
 
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
-        var fov = 35; // was 25
+        var fov = 25; // was 25
 				camera = new THREE.PerspectiveCamera( fov, SCREEN_WIDTH / SCREEN_HEIGHT, 50, 1e7 );
-				camera.position.z = 0; // was radius * 5
+				camera.position.z = radius; // was radius * 5
 
 				scene = new THREE.Scene();
 				scene.fog = new THREE.FogExp2( 0x000000, 0.00000025 );
