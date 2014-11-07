@@ -46,8 +46,8 @@
 
         webglEl.appendChild(renderer.domElement);
 
-        render();
         postprocess();
+        render();
 
         function render() {
                 controls.update();
@@ -59,6 +59,7 @@
 
         function postprocess(){
           var renderModel = new THREE.RenderPass( scene, camera );
+          renderModel.autoClear = false; // ADDED
           var effectFilm = new THREE.FilmPass( 0.35, 0.75, 2048, false );
           effectFilm.renderToScreen = true;
           composer = new THREE.EffectComposer( renderer );
