@@ -44,22 +44,21 @@
 
         var controls = new THREE.TrackballControls(camera);
 
-        webglEl.appendChild(renderer.domElement);
-
-        postprocess();
         render();
 
         function render() {
-                controls.update();
-                sphere.rotation.y += 0.00005;
-                clouds.rotation.y += 0.0005;
-                requestAnimationFrame(render);
-                renderer.render(scene, camera);
+          controls.update();
+          sphere.rotation.y += 0.00005;
+          clouds.rotation.y += 0.0005;
+          postprocess();
+          webglEl.appendChild(renderer.domElement);
+          requestAnimationFrame(render);
+          renderer.render(scene, camera);
         }
 
         function postprocess(){
           var renderModel = new THREE.RenderPass( scene, camera );
-          renderModel.autoClear = false; // ADDED
+          //renderModel.autoClear = false; // ADDED
           var effectFilm = new THREE.FilmPass( 0.35, 0.75, 2048, false );
           effectFilm.renderToScreen = true;
           composer = new THREE.EffectComposer( renderer );
