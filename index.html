@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Michroma|Inconsolata' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/font/stylesheet.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="css/fontmedium/stylesheet.css" media="screen" title="no title" charset="utf-8">
 		<style>
 			body {
 				background:#000;
@@ -21,15 +22,18 @@
 			}
       #info {
 				position: absolute;
-				top: 35%;
+				top: 30%;
 				width: 100%;
 				padding: 5px;
 				z-index:100;
 			}
       h1{
         font-family: 'microgramma_dbold_extended', sans-serif;
-				font-size: 70px;
+				font-size: 100px;
       }
+			h3{
+				font-family: 'microgramma_dmedium_extended', sans-serif;
+			}
 			a {
 				color: #0080ff;
 			}
@@ -59,6 +63,7 @@
 
 		<div id="info">
     <h1>N A V</h1>
+		<h3>CTE: 08-8f</h3>
     </div>
 
 		<script>
@@ -67,7 +72,7 @@
 
 			var radius = 6371;
 			var tilt = 0; // was 0.41 but 0.01 is good
-			var rotationSpeed = 0.05; // was 0.02 but 0.01 is good
+			var rotationSpeed = 0.02; // was 0.02 but 0.01 is good
 
 			var cloudsScale = 1.005;
 			var moonScale = 0.23;
