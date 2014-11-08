@@ -118,7 +118,7 @@
 				// controls.dragToLook = false;
 
 				dirLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
-				dirLight.position.set( 1, 0, 1 ).normalize();
+				dirLight.position.set( 1, 0, 0 ).normalize(); // was 1,0,1
 				scene.add( dirLight );
 
 				ambientLight = new THREE.AmbientLight( 0x000000, 0.2 );
