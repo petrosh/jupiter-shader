@@ -1,3 +1,4 @@
+- three.js docs http://threejs.org/docs/
 - fly control http://threejs.org/examples/#misc_controls_fly
 - jupiter http://www.cosmiqcloud.com/design/earth/jupiter.html
 - shader http://www.airtightinteractive.com/demos/js/shaders/preview/
