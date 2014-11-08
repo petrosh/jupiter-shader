@@ -92,6 +92,8 @@
 
 			var clock = new THREE.Clock();
 
+			var controls = new THREE.TrackballControls(camera);
+
 			init();
 			animate();
 
@@ -291,7 +293,7 @@
 			};
 
 			function animate() {
-
+				controls.update();
 				requestAnimationFrame( animate );
 
 				render();
