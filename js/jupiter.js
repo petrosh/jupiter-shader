@@ -31,7 +31,6 @@ function init() {
   camera.position.z = radius * 5; // was radius * 5
   camera.position.x = 0;
   camera.position.y = 0;
-  camera.rotation.z = tilt;
 
   scene = new THREE.Scene();
   scene.fog = new THREE.FogExp2( 0x000000, 0.00000025 );
@@ -276,6 +275,8 @@ function render() {
 
   meshPlanet.rotation.y += rotationSpeed * delta;
   // meshClouds.rotation.y += 1.25 * rotationSpeed * delta;
+
+  camera.rotation.z = tilt;
 
   // slow down as we approach the surface
 
