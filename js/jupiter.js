@@ -15,6 +15,7 @@ var container, stats;
 var camera, controls, scene, sceneCube, renderer;
 var geometry, meshPlanet, meshClouds, meshMoon;
 var dirLight, pointLight, ambientLight;
+var fov = 35;
 
 var d, dPlanet, dMoon, dMoonVec = new THREE.Vector3();
 
@@ -27,7 +28,7 @@ function init() {
 
   container = document.createElement( 'div' );
   document.body.appendChild( container );
-  camera = new THREE.PerspectiveCamera( 50, SCREEN_WIDTH / SCREEN_HEIGHT, 50, 1e7 );
+  camera = new THREE.PerspectiveCamera( fov, SCREEN_WIDTH / SCREEN_HEIGHT, 50, 1e7 );
   camera.position.z = radius * 10; // was radius * 5
   camera.position.x = 0;
   camera.position.y = 0;
