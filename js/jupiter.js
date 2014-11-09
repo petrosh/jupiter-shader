@@ -15,7 +15,7 @@ var container, stats;
 var camera, controls, scene, sceneCube, renderer;
 var geometry, meshPlanet, meshClouds, meshMoon;
 var dirLight, pointLight, ambientLight;
-var fov = 35;
+var fov = 30;
 
 var d, dPlanet, dMoon, dMoonVec = new THREE.Vector3();
 
@@ -32,6 +32,8 @@ function init() {
   camera.position.z = radius * 10; // was radius * 5
   camera.position.x = 0;
   camera.position.y = 0;
+  camera.up = new THREE.Vector3(0,0,1);
+  camera.lookAt(new THREE.Vector3(0,0,0));
 
   cameraHolder = new THREE.Object3D();
   cameraHolder.add( camera );
