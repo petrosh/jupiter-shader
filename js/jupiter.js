@@ -194,9 +194,11 @@ function init() {
     });
     var geometry = new THREE.Geometry();
     var aleng = 100000;
-    geometry.vertices.push(new THREE.Vector3(-aleng, 0, 0));
-    geometry.vertices.push(new THREE.Vector3(0, aleng, 0));
+    // geometry.vertices.push(new THREE.Vector3(-aleng, 0, 0));
+    // geometry.vertices.push(new THREE.Vector3(0, aleng, 0));
+    // geometry.vertices.push(new THREE.Vector3(aleng, 0, 0));
     geometry.vertices.push(new THREE.Vector3(aleng, 0, 0));
+    geometry.vertices.push(new THREE.Vector3(0, 0, 0));
     var line = new THREE.Line(geometry, material);
         scene.add(line);
   // START RENDER
