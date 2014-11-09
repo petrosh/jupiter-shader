@@ -114,7 +114,7 @@ function init() {
   geometry = new THREE.SphereGeometry( radius, 100, 50 );
   geometry.computeTangents();
 
-  meshPlanet = new THREE.MeshLambertMaterial( geometry, materialNormalMap );
+  meshPlanet = new THREE.Mesh( geometry, materialNormalMap );
   meshPlanet.rotation.y = 0;
   meshPlanet.rotation.z = tilt;
   scene.add( meshPlanet );
@@ -217,30 +217,12 @@ function init() {
     var line = new THREE.Line(geometry, material);
     scene.add(line);
   }
-
+  
   // START RENDER
 
-  renderer = new THREE.WebGLRenderer({ antialias: true});
+  renderer = new THREE.WebGLRenderer();
   renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
   renderer.sortObjects = false;
-
-  // cast shadow
-  renderer.shadowMapEnabled = true;
-  renderer.shadowMapSoft = false;
-
-  renderer.shadowCameraNear = 3;
-  renderer.shadowCameraFar = camera.far;
-  renderer.shadowCameraFov = 50;
-
-  renderer.shadowMapBias = 0.0039;
-  renderer.shadowMapDarkness = 0.5;
-  renderer.shadowMapWidth = 1024;
-  renderer.shadowMapHeight = 1024;
-
-  dirLight.castShadow = true;
-  meshMoon.castShadow = true;
-  meshPlanet.receiveShadow = true;
-  // end shadows
 
   renderer.autoClear = false;
 
