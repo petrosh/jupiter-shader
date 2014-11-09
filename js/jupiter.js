@@ -235,7 +235,7 @@ function init() {
       meshPlanet.receiveShadow = true;
   // START RENDER
 
-  renderer = new THREE.WebGLRenderer();
+  renderer = new THREE.WebGLRenderer({ antialias: true});
   renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
   renderer.sortObjects = false;
 
