@@ -189,17 +189,25 @@ function init() {
 
   }
   // AXIS
-  var material = new THREE.LineBasicMaterial({
-      color: 0xffffff
-  });
+  var material = new THREE.LineBasicMaterial({color: 0xff0000});
   var geometry = new THREE.Geometry();
   var aleng = 100000;
-  // geometry.vertices.push(new THREE.Vector3(-aleng, 0, 0));
-  // geometry.vertices.push(new THREE.Vector3(0, aleng, 0));
-  // geometry.vertices.push(new THREE.Vector3(aleng, 0, 0));
   geometry.vertices.push(new THREE.Vector3(aleng, 0, 0));
   geometry.vertices.push(new THREE.Vector3(0, 0, 0));
+  var line = new THREE.Line(geometry, material);
+  scene.add(line);
+
+  var material = new THREE.LineBasicMaterial({color: 0x00ff00});
+  var geometry = new THREE.Geometry();
+  geometry.vertices.push(new THREE.Vector3(0, aleng, 0));
+  geometry.vertices.push(new THREE.Vector3(0, 0, 0));
+  var line = new THREE.Line(geometry, material);
+  scene.add(line);
+
+  var material = new THREE.LineBasicMaterial({color: 0x0000ff});
+  var geometry = new THREE.Geometry();
   geometry.vertices.push(new THREE.Vector3(0, 0, aleng));
+  geometry.vertices.push(new THREE.Vector3(0, 0, 0));
   var line = new THREE.Line(geometry, material);
   scene.add(line);
   // START RENDER
