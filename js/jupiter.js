@@ -33,7 +33,7 @@ function init() {
   camera.position.x = 0;
   camera.position.y = 0;
   camera.up = new THREE.Vector3(0,1,0);
-  camera.lookAt(new THREE.Vector3(0,0,0));
+  camera.lookAt({x:0,y:0,z:0}); // camera.lookAt(new THREE.Vector3(0,0,0));
 
   cameraHolder = new THREE.Object3D();
   cameraHolder.add( camera );
@@ -217,6 +217,22 @@ function init() {
     var line = new THREE.Line(geometry, material);
     scene.add(line);
   }
+  // cast shadow
+      renderer.shadowMapEnabled = true;
+      renderer.shadowMapSoft = false;
+
+      renderer.shadowCameraNear = 3;
+      renderer.shadowCameraFar = camera.far;
+      renderer.shadowCameraFov = 50;
+
+      renderer.shadowMapBias = 0.0039;
+      renderer.shadowMapDarkness = 0.5;
+      renderer.shadowMapWidth = 1024;
+      renderer.shadowMapHeight = 1024;
+
+      dirLight.castShadow = true;
+      meshMoon.castShadow = true;
+      meshPlanet.receiveShadow = true;
   // START RENDER
 
   renderer = new THREE.WebGLRenderer();
