@@ -1,5 +1,8 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
+var keyboard = new THREEx.KeyboardState();
+if( keyboard.pressed(" ") ) alert('ok');
+
 var radius = 6371;
 var tilt = 0; // was 0.41 but 0.01 is good
 var rotationSpeed = 0.01; // was 0.02 but 0.01 is good
@@ -217,7 +220,7 @@ function init() {
     var line = new THREE.Line(geometry, material);
     scene.add(line);
   }
-  
+
   // START RENDER
 
   renderer = new THREE.WebGLRenderer();
