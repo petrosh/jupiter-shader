@@ -1,6 +1,7 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
 var keyboard = new THREEx.KeyboardState();
+if( keyboard.pressed("A") ) document.getElementById('nav').style.display = "none";
 
 var radius = 6371;
 var tilt = 0; // was 0.41 but 0.01 is good
@@ -284,7 +285,6 @@ function render() {
   // rotate the planet and clouds
 
   var delta = clock.getDelta();
-if( keyboard.pressed("A") ) console.log('ok');
 
   meshPlanet.rotation.y += rotationSpeed * delta;
   // meshClouds.rotation.y += 1.25 * rotationSpeed * delta;
