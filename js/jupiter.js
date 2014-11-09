@@ -276,7 +276,7 @@ function render() {
   meshPlanet.rotation.y += rotationSpeed * delta;
   // meshClouds.rotation.y += 1.25 * rotationSpeed * delta;
 
-  camera.rotation.z = tilt;
+  camera.rotation.x += rotationSpeed;
 
   // slow down as we approach the surface
 
