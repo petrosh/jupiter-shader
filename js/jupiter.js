@@ -276,7 +276,8 @@ function render() {
   meshPlanet.rotation.y += rotationSpeed * delta;
   // meshClouds.rotation.y += 1.25 * rotationSpeed * delta;
 
-  camera.rotation.x += rotationSpeed;
+  // camera.rotation.x += rotationSpeed;
+  camera.rotateOnAxis(new THREE.Vector3(1, 0, 0), degInRad(90));
 
   // slow down as we approach the surface
 
