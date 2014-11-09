@@ -260,7 +260,7 @@ function render() {
   // meshClouds.rotation.y += 1.25 * rotationSpeed * delta;
 
   // camera.rotation.x += rotationSpeed;
-  neck.rotation.x += rotationSpeed * delta;
+  neck.rotation.z += rotationSpeed * delta;
   // slow down as we approach the surface
 
   dPlanet = camera.position.length();
