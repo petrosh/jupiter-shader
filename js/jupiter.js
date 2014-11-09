@@ -114,7 +114,7 @@ function init() {
   geometry = new THREE.SphereGeometry( radius, 100, 50 );
   geometry.computeTangents();
 
-  meshPlanet = new THREE.Mesh( geometry, materialNormalMap );
+  meshPlanet = new THREE.MeshLambertMaterial( geometry, materialNormalMap );
   meshPlanet.rotation.y = 0;
   meshPlanet.rotation.z = tilt;
   scene.add( meshPlanet );
