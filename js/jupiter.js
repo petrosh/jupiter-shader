@@ -27,8 +27,8 @@ function init() {
 
   container = document.createElement( 'div' );
   document.body.appendChild( container );
-  camera = new THREE.PerspectiveCamera( 25, SCREEN_WIDTH / SCREEN_HEIGHT, 50, 1e7 );
-  camera.position.z = radius * 5; // was radius * 5
+  camera = new THREE.PerspectiveCamera( 50, SCREEN_WIDTH / SCREEN_HEIGHT, 50, 1e7 );
+  camera.position.z = radius * 10; // was radius * 5
   camera.position.x = 0;
   camera.position.y = 0;
 
@@ -279,8 +279,9 @@ function render() {
   meshPlanet.rotation.y += rotationSpeed * delta;
   // meshClouds.rotation.y += 1.25 * rotationSpeed * delta;
 
-  // camera.rotation.x += rotationSpeed;
+  // rotate camera (neck)
   neck.rotation.z += rotationSpeed * delta;
+
   // slow down as we approach the surface
 
   dPlanet = camera.position.length();
