@@ -267,6 +267,10 @@ function animate() {
 
 };
 
+function degInRad(deg) {
+    return deg * Math.PI / 180;
+};
+
 function render() {
 
   // rotate the planet and clouds
