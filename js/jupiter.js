@@ -32,6 +32,9 @@ function init() {
   camera.position.x = 0;
   camera.position.y = 0;
 
+  cameraHolder = new THREE.Object3D();
+  cameraHolder.add( camera );
+
   scene = new THREE.Scene();
   scene.fog = new THREE.FogExp2( 0x000000, 0.00000025 );
 
@@ -91,6 +94,16 @@ function init() {
   };
 
   var materialNormalMap = new THREE.ShaderMaterial( parameters );
+
+  // ADD NECK
+  neck = new THREE.Object3D();
+  neck.rotateOnAxis(new THREE.Vector3(1, 0, 0), degInRad(90));
+  neck.up = new THREE.Vector3(0, 0, 1);
+  neck.position.z = 1;
+  neck.position.y = -5;
+
+  neck.add(camera);
+  scene.add(neck);
 
   // planet
 
@@ -206,6 +219,10 @@ function init() {
 
 };
 
+function degInRad(deg) {
+    return deg * Math.PI / 180;
+}
+
 function onWindowResize( event ) {
 
   SCREEN_HEIGHT = window.innerHeight;
@@ -243,8 +260,7 @@ function render() {
   // meshClouds.rotation.y += 1.25 * rotationSpeed * delta;
 
   // camera.rotation.x += rotationSpeed;
-  camera.rotateOnAxis((new THREE.Vector3(0, 1, 0)).normalize(), degInRad(1));
-
+  neck.rotation.y += degInRad(1);
   // slow down as we approach the surface
 
   dPlanet = camera.position.length();
