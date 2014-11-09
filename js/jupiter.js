@@ -5,7 +5,7 @@ var tilt = 0; // was 0.41 but 0.01 is good
 var rotationSpeed = 0.01; // was 0.02 but 0.01 is good
 
 var cloudsScale = 1.005;
-var moonScale = 0.23;
+var moonScale = 0.1;
 
 var MARGIN = 0;
 var SCREEN_HEIGHT = window.innerHeight - MARGIN * 2;
@@ -129,7 +129,7 @@ function init() {
   var materialMoon = new THREE.MeshPhongMaterial( { color: 0xffffff, map: moonTexture } );
 
   meshMoon = new THREE.Mesh( geometry, materialMoon );
-  meshMoon.position.set( radius, 0, radius );
+  meshMoon.position.set( radius * 2 , 0, radius * 2 );
   meshMoon.scale.set( moonScale, moonScale, moonScale );
   scene.add( meshMoon );
 
