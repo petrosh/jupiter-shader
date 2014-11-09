@@ -32,7 +32,7 @@ function init() {
   camera.position.z = radius * 10; // was radius * 5
   camera.position.x = 0;
   camera.position.y = 0;
-  camera.up = new THREE.Vector3(0,0,1);
+  camera.up = new THREE.Vector3(1,0,0);
   camera.lookAt(new THREE.Vector3(0,0,0));
 
   cameraHolder = new THREE.Object3D();
