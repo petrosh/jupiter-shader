@@ -140,6 +140,12 @@ function init() {
   meshMoon.scale.set( moonScale, moonScale, moonScale );
   scene.add( meshMoon );
 
+  // add spritey
+  var spritey = makeTextSprite( "moon", { fontsize: 32, backgroundColor: {r:255, g:100, b:100, a:1} } );
+	spritey.position = meshMoon.position;
+  spritey.position.y += 500;
+	scene.add( spritey );
+
   // stars
 
   var i, r = radius, starsGeometry = [ new THREE.Geometry(), new THREE.Geometry() ];
