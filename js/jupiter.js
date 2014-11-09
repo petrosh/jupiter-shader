@@ -99,6 +99,7 @@ function init() {
   neck = new THREE.Object3D();
   // neck.rotateOnAxis(new THREE.Vector3(1, 0, 0), degInRad(90));
   neck.up = new THREE.Vector3(0, 0, 1);
+  neck.position.x = radius / 2;
   // neck.position.z = 1;
   // neck.position.y = -5;
 
